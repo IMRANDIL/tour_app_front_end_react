@@ -58,8 +58,18 @@ const Login = () => {
                                 validation="Please Provide Your Password!"
                             />
                         </div>
+                        <div className="col-12">
+                            <MDBBtn style={{ width: '100%' }} className='mt-2'>
+                                Login
+                            </MDBBtn>
+                        </div>
                     </MDBValidation>
                 </MDBCardBody>
+                <MDBCardFooter>
+                    <Link to='/register' draggable='false'>
+                        <p>Don't have an account? Sign up</p>
+                    </Link>
+                </MDBCardFooter>
             </MDBCard>
 
 
