@@ -7,6 +7,30 @@ import * as api from '../api'
 
 
 
+
+
+
+export const login = createAsyncThunk('auth/login', async ({ formValue, navigate, toast }) => {
+    try {
+
+        const response = await api.signIn(formValue);
+        console.log(response);
+        toast.success('Login successful');
+        navigate('/');
+        return response.data;
+
+
+
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+
+
+
+
+
 const authSlice = createSlice({
     name: "auth",
     initialState: {
@@ -30,23 +54,6 @@ const authSlice = createSlice({
     }
 });
 
-
-
-export const login = createAsyncThunk('auth/login', async ({ formValue, navigate, toast }) => {
-    try {
-
-        const response = await api.signIn(formValue);
-        console.log(response);
-        toast.success('Login successful');
-        navigate('/');
-        return response.data;
-
-
-
-    } catch (error) {
-        console.log(error);
-    }
-})
 
 
 export default authSlice.reducer;
