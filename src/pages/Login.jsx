@@ -5,22 +5,30 @@ import { Link } from 'react-router-dom';
 
 
 
-const initialState = {
-    email: "",
-    password: ""
-}
 
 
 const Login = () => {
+
+    const initialState = {
+        email: "",
+        password: ""
+    }
+
 
     const [formValue, setFormValue] = useState(initialState);
 
     const { email, password } = formValue
 
 
-    const handleSubmit = () => { }
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    const handleInput = () => { }
+    }
+
+    const handleInput = (e) => {
+        const { name, value } = e.target;
+        setFormValue({ ...formValue, [name]: value });
+    }
 
 
     return (
@@ -34,9 +42,10 @@ const Login = () => {
                         <div className="col-md-12">
                             <MDBInput
                                 label="Email"
+                                name="email"
                                 type="email"
                                 value={email}
-                                name="email"
+
                                 onChange={handleInput}
                                 required
                                 invalid
@@ -49,9 +58,10 @@ const Login = () => {
                         <div className="col-md-12">
                             <MDBInput
                                 label="Password"
+                                name="password"
                                 type="password"
                                 value={password}
-                                name="password"
+
                                 onChange={handleInput}
                                 required
                                 invalid
@@ -59,7 +69,7 @@ const Login = () => {
                             />
                         </div>
                         <div className="col-12">
-                            <MDBBtn style={{ width: '100%' }} className='mt-2'>
+                            <MDBBtn style={{ width: '100%' }} className='mt-2' type='submit'>
                                 Login
                             </MDBBtn>
                         </div>
