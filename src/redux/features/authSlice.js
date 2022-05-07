@@ -13,6 +13,20 @@ const authSlice = createSlice({
         user: null,
         error: '',
         loading: false
+    },
+    extraReducers: {
+        [login.pending]: (state, action) => {
+            state.loading = true
+        },
+        [login.fulfilled]: (state, action) => {
+            state.loading = false;
+            localStorage.setItem('profile', JSON.stringify({ ...action.payload }));
+            state.user = action.payload;
+        },
+        [login.rejected]: (state, action) => {
+            state.loading = false;
+            state.error = action.payload.message;
+        }
     }
 });
 
