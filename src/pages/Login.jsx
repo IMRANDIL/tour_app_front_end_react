@@ -20,7 +20,7 @@ const Login = () => {
 
     const handleSubmit = () => { }
 
-
+    const handleInput = () => { }
 
 
     return (
@@ -31,7 +31,33 @@ const Login = () => {
                 <h5>Sign in</h5>
                 <MDBCardBody>
                     <MDBValidation onSubmit={handleSubmit} noValidate className='row g-3'>
+                        <div className="col-md-12">
+                            <MDBInput
+                                label="Email"
+                                type="email"
+                                value={email}
+                                name="email"
+                                onChange={handleInput}
+                                required
+                                invalid
+                                validation="Please Provide Your Email!"
+                            />
+                        </div>
 
+
+
+                        <div className="col-md-12">
+                            <MDBInput
+                                label="Password"
+                                type="password"
+                                value={password}
+                                name="password"
+                                onChange={handleInput}
+                                required
+                                invalid
+                                validation="Please Provide Your Password!"
+                            />
+                        </div>
                     </MDBValidation>
                 </MDBCardBody>
             </MDBCard>
