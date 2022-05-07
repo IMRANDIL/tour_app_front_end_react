@@ -11,4 +11,14 @@ const authSlice = createSlice({
 });
 
 
+
+export const login = createAsyncThunk('auth/login', async () => {
+    try {
+
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
 export default authSlice.reducer;
