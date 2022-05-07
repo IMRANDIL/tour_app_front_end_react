@@ -17,6 +17,8 @@ const Login = () => {
         password: ""
     }
 
+    const { loading, error } = useSelector((state) => ({ ...state.auth }))
+
     const dispatch = useDispatch();
 
     const navigate = useNavigate()
@@ -25,6 +27,18 @@ const Login = () => {
     const [formValue, setFormValue] = useState(initialState);
 
     const { email, password } = formValue
+
+
+
+
+    useEffect(() => {
+
+        error && toast.error(error);
+
+    }, [error])
+
+
+
 
 
     const handleSubmit = (e) => {
@@ -80,6 +94,7 @@ const Login = () => {
                         </div>
                         <div className="col-12">
                             <MDBBtn style={{ width: '100%' }} className='mt-2' type='submit'>
+                                {loading && <MDBSpinner size='sm' role='status' tag='span' className='me-2' />}
                                 Login
                             </MDBBtn>
                         </div>
