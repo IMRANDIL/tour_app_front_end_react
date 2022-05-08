@@ -4,7 +4,7 @@ import { MDBCard, MDBCardBody, MDBInput, MDBCardFooter, MDBValidation, MDBBtn, M
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify'
-import { login } from '../redux/features/authSlice';
+import { register } from '../redux/features/authSlice';
 
 
 
@@ -46,8 +46,15 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (email && password) {
-            dispatch(login({ formValue, navigate, toast }))
+
+        //check if password matched or not...
+
+        if (password !== confirmPassword) {
+            return toast.error('Password did not match!')
+        }
+
+        if (email && password && firstName && lastName && confirmPassword) {
+            dispatch(register({ formValue, navigate, toast }))
         }
 
     }
