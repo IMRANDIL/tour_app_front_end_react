@@ -8,7 +8,8 @@ import { login } from '../redux/features/authSlice';
 
 import { reset } from '../redux/features/authSlice';
 
-import { GoogleLogin } from 'react-google-login';
+import GoogleLogin from 'react-google-login';
+
 
 
 
@@ -61,6 +62,22 @@ const Login = () => {
     }
 
 
+
+    const googleSuccess = (res) => {
+        console.log(res);
+    };
+
+    const googleFailure = (error) => {
+        console.log(error);
+        toast.error(error)
+    }
+
+
+
+
+
+
+
     return (
         <div style={{ margin: 'auto', padding: '15px', maxWidth: '450px', alignContent: 'center', marginTop: '120px' }}>
 
@@ -107,7 +124,7 @@ const Login = () => {
                     </MDBValidation>
                     <br />
                     <GoogleLogin
-                        clientId='...'
+                        clientId={process.env.REACT_APP_CLIENT_ID}
                         render={(renderProps) => (
                             <MDBBtn style={{ width: '100%' }} color='danger' onClick={(renderProps.onClick)} disabled={renderProps.disabled}>
                                 <MDBIcon className='me-2' fab icon='google' />
@@ -117,6 +134,7 @@ const Login = () => {
 
                         onSuccess={googleSuccess}
                         onFailure={googleFailure}
+                        cookiePolicy={'single_host_origin'}
 
                     />
                 </MDBCardBody>
