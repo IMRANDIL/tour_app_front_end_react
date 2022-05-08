@@ -49,16 +49,23 @@ export const register = createAsyncThunk('auth/register', async ({ formValue, na
 
 
 
-
+const user = localStorage.getItem('user');
 
 
 
 const authSlice = createSlice({
     name: "auth",
     initialState: {
-        user: null,
+        user: user ? user : null,
         error: '',
         loading: false
+    },
+    reducers: {
+        reset: (state) => {
+            state.error = '';
+            state.loading = false;
+
+        }
     },
     extraReducers: {
         [login.pending]: (state, action) => {
@@ -67,7 +74,7 @@ const authSlice = createSlice({
         },
         [login.fulfilled]: (state, action) => {
             state.loading = false;
-            localStorage.setItem('profile', JSON.stringify({ ...action.payload }));
+            localStorage.setItem('user', JSON.stringify({ ...action.payload }));
             state.user = action.payload;
         },
         [login.rejected]: (state, action) => {
@@ -86,12 +93,12 @@ const authSlice = createSlice({
         },
         [register.rejected]: (state, action) => {
             state.loading = false;
-            state.user = null;
             state.error = action.payload.message;
         }
     }
 });
 
 
+export const { reset } = authSlice.actions;
 
 export default authSlice.reducer;

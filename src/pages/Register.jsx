@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify'
 import { register } from '../redux/features/authSlice';
-
+import { reset } from '../redux/features/authSlice'
 
 
 
@@ -38,6 +38,10 @@ const Register = () => {
 
         error && toast.error(error);
 
+        return () => {
+            dispatch(reset())
+        }
+
     }, [error])
 
 
@@ -63,6 +67,7 @@ const Register = () => {
         const { name, value } = e.target;
         setFormValue({ ...formValue, [name]: value });
     }
+
 
 
     return (

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify'
 import { login } from '../redux/features/authSlice';
 
-
+import { reset } from '../redux/features/authSlice';
 
 
 
@@ -34,6 +34,10 @@ const Login = () => {
     useEffect(() => {
 
         error && toast.error(error);
+
+        return () => {
+            dispatch(reset())
+        }
 
     }, [error])
 
