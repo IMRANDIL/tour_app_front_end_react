@@ -123,7 +123,7 @@ const Register = () => {
 
 
 
-                        <div className="col-md-12">
+                        <div className="col-md-6">
                             <MDBInput
                                 label="Password"
                                 name="password"
@@ -138,7 +138,7 @@ const Register = () => {
                         </div>
 
 
-                        <div className="col-md-12">
+                        <div className="col-md-6">
                             <MDBInput
                                 label="confirm Password"
                                 name="confirmpassword"
