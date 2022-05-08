@@ -110,9 +110,13 @@ const Login = () => {
                         clientId='...'
                         render={(renderProps) => (
                             <MDBBtn style={{ width: '100%' }} color='danger' onClick={(renderProps.onClick)} disabled={renderProps.disabled}>
-
+                                <MDBIcon className='me-2' fab icon='google' />
+                                Google Sign In
                             </MDBBtn>
                         )}
+
+                        onSuccess={googleSuccess}
+                        onFailure={googleFailure}
 
                     />
                 </MDBCardBody>
