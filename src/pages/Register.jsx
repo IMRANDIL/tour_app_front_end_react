@@ -16,7 +16,8 @@ const Register = () => {
         firstName: "",
         lastName: "",
         email: "",
-        password: ""
+        password: "",
+        confirmPassword: ""
     }
 
     const { loading, error } = useSelector((state) => ({ ...state.auth }))
@@ -28,7 +29,7 @@ const Register = () => {
 
     const [formValue, setFormValue] = useState(initialState);
 
-    const { firstName, lastName, email, password } = formValue
+    const { firstName, lastName, email, password, confirmPassword } = formValue
 
 
 
@@ -67,7 +68,7 @@ const Register = () => {
                     <MDBValidation onSubmit={handleSubmit} noValidate className='row g-3'>
 
 
-                        <div className="col-md-12">
+                        <div className="col-md-6">
                             <MDBInput
                                 label="firstName"
                                 name="firstName"
@@ -77,13 +78,13 @@ const Register = () => {
                                 onChange={handleInput}
                                 required
                                 invalid
-                                validation="Please Provide Your firstName!"
+                                validation="Provide Your firstName!"
                             />
                         </div>
 
 
 
-                        <div className="col-md-12">
+                        <div className="col-md-6">
                             <MDBInput
                                 label="lastName"
                                 name="lastName"
@@ -93,7 +94,7 @@ const Register = () => {
                                 onChange={handleInput}
                                 required
                                 invalid
-                                validation="Please Provide Your lastName!"
+                                validation="Provide Your lastName!"
                             />
                         </div>
 
@@ -128,10 +129,30 @@ const Register = () => {
                                 validation="Please Provide Your Password!"
                             />
                         </div>
+
+
+                        <div className="col-md-12">
+                            <MDBInput
+                                label="confirm Password"
+                                name="confirmpassword"
+                                type="password"
+                                value={confirmPassword}
+
+                                onChange={handleInput}
+                                required
+                                invalid
+                                validation="Please Confirm Your Password!"
+                            />
+                        </div>
+
+
+
+
+
                         <div className="col-12">
                             <MDBBtn style={{ width: '100%' }} className='mt-2' type='submit'>
                                 {loading && <MDBSpinner size='sm' role='status' tag='span' className='me-2' />}
-                                Signup
+                                Register
                             </MDBBtn>
                         </div>
                     </MDBValidation>
