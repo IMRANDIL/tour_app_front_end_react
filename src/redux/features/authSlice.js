@@ -62,7 +62,8 @@ const authSlice = createSlice({
     },
     extraReducers: {
         [login.pending]: (state, action) => {
-            state.loading = true
+            state.loading = true;
+
         },
         [login.fulfilled]: (state, action) => {
             state.loading = false;
@@ -71,10 +72,12 @@ const authSlice = createSlice({
         },
         [login.rejected]: (state, action) => {
             state.loading = false;
+            state.user = null;
             state.error = action.payload.message;
         },
         [register.pending]: (state, action) => {
-            state.loading = true
+            state.loading = true;
+
         },
         [register.fulfilled]: (state, action) => {
             state.loading = false;
