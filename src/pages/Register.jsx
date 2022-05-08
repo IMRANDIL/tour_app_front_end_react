@@ -85,7 +85,7 @@ const Register = () => {
                                 onChange={handleInput}
                                 required
                                 invalid
-                                validation="Provide Your firstName!"
+                                validation="Provide firstName!"
                             />
                         </div>
 
@@ -101,7 +101,7 @@ const Register = () => {
                                 onChange={handleInput}
                                 required
                                 invalid
-                                validation="Provide Your lastName!"
+                                validation="Provide lastName!"
                             />
                         </div>
 
@@ -117,7 +117,7 @@ const Register = () => {
                                 onChange={handleInput}
                                 required
                                 invalid
-                                validation="Please Provide Your Email!"
+                                validation="Please Provide Email!"
                             />
                         </div>
 
@@ -133,7 +133,7 @@ const Register = () => {
                                 onChange={handleInput}
                                 required
                                 invalid
-                                validation="Please Provide Your Password!"
+                                validation="Please Provide Password!"
                             />
                         </div>
 
@@ -148,7 +148,7 @@ const Register = () => {
                                 onChange={handleInput}
                                 required
                                 invalid
-                                validation="Please Confirm Your Password!"
+                                validation="Please Confirm Password!"
                             />
                         </div>
 

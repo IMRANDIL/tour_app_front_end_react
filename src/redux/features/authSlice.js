@@ -83,6 +83,7 @@ const authSlice = createSlice({
         },
         [register.rejected]: (state, action) => {
             state.loading = false;
+            state.user = null;
             state.error = action.payload.message;
         }
     }
