@@ -8,6 +8,8 @@ import { login } from '../redux/features/authSlice';
 
 import { reset } from '../redux/features/authSlice';
 
+import { GoogleLogin } from 'react-google-login';
+
 
 
 const Login = () => {
@@ -103,6 +105,16 @@ const Login = () => {
                             </MDBBtn>
                         </div>
                     </MDBValidation>
+                    <br />
+                    <GoogleLogin
+                        clientId='...'
+                        render={(renderProps) => (
+                            <MDBBtn style={{ width: '100%' }} color='danger' onClick={(renderProps.onClick)} disabled={renderProps.disabled}>
+
+                            </MDBBtn>
+                        )}
+
+                    />
                 </MDBCardBody>
                 <MDBCardFooter>
                     <Link to='/register' draggable='false'>
