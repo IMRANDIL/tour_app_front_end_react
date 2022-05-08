@@ -141,7 +141,7 @@ const Register = () => {
                         <div className="col-md-6">
                             <MDBInput
                                 label="confirm Password"
-                                name="confirmpassword"
+                                name="confirmPassword"
                                 type="password"
                                 value={confirmPassword}
 
